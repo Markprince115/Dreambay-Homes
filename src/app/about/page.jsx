@@ -1,0 +1,142 @@
+'use client'
+import React, { useRef } from 'react'
+import ABOUT1 from '@/assets/images/about1.jpg'
+import ABOUT2 from '@/assets/images/about2.jpg'
+import Image from 'next/image'
+import { Mountain, Target } from 'lucide-react'
+import { motion, useInView } from 'framer-motion'
+
+const About = () => {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, amount: 0.3 })
+
+  const fadeInUpVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 }
+  }
+
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  }
+
+  return (
+    <div className='w-full' ref={ref}>
+      <motion.section 
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+        variants={fadeInUpVariants}
+        className='w-full h-[70dvh]'
+        style={{backgroundImage: `url(${ABOUT1.src})`, backgroundSize: 'cover', backgroundColor: "#00163BD9", backgroundBlendMode: 'overlay', backgroundPosition: 'center'}}
+      >
+        <motion.div 
+          variants={fadeInUpVariants}
+          className='container pt-[20rem] pl-5'
+        >
+          <motion.h2 
+            variants={fadeInUpVariants}
+            className='text-3xl text-neutral-50'
+          >
+            About Us
+          </motion.h2>
+        </motion.div>
+      </motion.section>
+
+      <motion.section 
+        variants={staggerContainer}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+        className='flex flex-col w-full items-center justify-center'
+      >
+        <div className='flex flex-col items-center justify-center p-4'>
+          <motion.p 
+            variants={fadeInUpVariants}
+            className='text-neutral-800 text-left leading-relaxed mb-6'
+          >
+            At <b>Dreambay Homes</b>, we believe finding the perfect place to stay should feel effortless. We provide beautifully designed <br/>shortlets and fully serviced apartments that combine luxury, comfort, and convenience for today's modern lifestyle.
+          </motion.p>
+          <motion.p 
+            variants={fadeInUpVariants}
+            className='text-neutral-800 text-left leading-relaxed mb-6'
+          >
+            Whether you're traveling for business, leisure, or a longer retreat, our spaces are crafted to feel like home — warm, stylish, <br/>and thoughtfully equipped. With prime locations, seamless booking, and personalized service, we go beyond <br/>accommodation to create memorable experiences.
+          </motion.p>
+        </div>
+      </motion.section>
+
+      <motion.section 
+        variants={staggerContainer}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+        className='w-full py-20 px-6'
+      >
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto'>
+          <motion.div 
+            variants={fadeInUpVariants}
+            className='w-full flex justify-center'
+          >
+            <Image 
+              src={ABOUT2} 
+              width={400} 
+              height={400} 
+              alt='image' 
+              className='rounded-2xl shadow-md'
+            />
+          </motion.div>
+          
+          <motion.div 
+            variants={staggerContainer}
+            className='flex flex-col space-y-12 px-4'
+          >
+            {[
+              {
+                icon: <Target size={40} />,
+                title: "Our Vision",
+                text: "To become Nigeria's leading choice for shortlets and apartment rentals, known for redefining temporary living through style, innovation, and exceptional service."
+              },
+              {
+                icon: <Mountain size={40} />,
+                title: "Our Mission",
+                text: "We are committed to providing modern, well-designed, and strategically located apartments that meet the needs of business travelers, holidaymakers, and long-stay guests. Through seamless booking, personalized care, and high-quality spaces, we make every stay effortless, enjoyable, and memorable."
+              },
+              {
+                icon: <Target size={40} />,
+                title: "Core Value",
+                text: "Comfort - Every space is designed with the guest's ease and relaxation in mind. Quality – From interiors to service, excellence defines everything we do. Trust – We deliver on our promise, ensuring transparency and reliability. Innovation – We adapt to modern lifestyles, offering flexible living solutions. Care – Hospitality is at our heart; we treat every guest like family."
+              }
+            ].map((item, index) => (
+              <motion.div 
+                key={index}
+                variants={fadeInUpVariants}
+                className='flex items-start gap-3'
+              >
+                <span className='text-teal-500 mt-1'>{item.icon}</span>
+                <div>
+                  <motion.h2 
+                    variants={fadeInUpVariants}
+                    className='text-3xl font-bold mb-2'
+                  >
+                    {item.title}
+                  </motion.h2>
+                  <motion.p 
+                    variants={fadeInUpVariants}
+                    className='text-neutral-700'
+                  >
+                    {item.text}
+                  </motion.p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </motion.section>
+    </div>
+  )
+}
+
+export default About
