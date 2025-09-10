@@ -17,7 +17,7 @@ const Hero = () => {
     <section 
       ref={ref}
       className='w-full h-screen bg-cover bg-center relative' 
-      style={{backgroundImage: `url(${HEROBG.src})`}}
+      style={{backgroundImage: `url(${HEROBG.src})`, width: '100%', height: '100vh'}}
     >
       <div className='absolute inset-0 bg-[#00163BD9]'></div>
       <motion.div

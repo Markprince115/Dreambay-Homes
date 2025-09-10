@@ -40,7 +40,7 @@ const PropertyCard = ({
           width={400} 
           height={250} 
           alt={title} 
-          className="object-cover rounded-md w-full h-[250px]" 
+          className="object-cover rounded-md" 
         />
       </motion.div>
 
