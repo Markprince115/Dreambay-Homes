@@ -6,14 +6,14 @@ import Image from 'next/image'
 import { Mountain, Target } from 'lucide-react'
 import { motion, useInView } from 'framer-motion'
 
-const about = () => {
+export default function About(){
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.3 })
 
   const fadeInUpVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 }
-  }
+ }
 
   const staggerContainer = {
     hidden: { opacity: 0 },
@@ -136,5 +136,3 @@ const about = () => {
     </div>
   )
 }
-
-export default about
