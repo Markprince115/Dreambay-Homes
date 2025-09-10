@@ -12,9 +12,10 @@ const Service = () => {
         <p className='border border-green-300/50 rounded-full text-sm px-7 py-2'> Services We Provide</p>
       </div>
 
-    {/* 2 image card grid section image using shadcn ui */}
+    {/* Responsive grid section */}
     <div className='w-full pb-8'>
-      <div className='flex flex-col md:flex-row items-center justify-center gap-5'>
+      {/* The key change is here, replacing the flexbox with a responsive grid */}
+      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 px-5 md:px-10 justify-items-center'>
           {properties.map((property, index) => (
               <PropertyCard key={index}
                 image={property.image}

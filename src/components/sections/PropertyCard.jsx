@@ -11,7 +11,8 @@ const PropertyCard = ({
     description,
     features,
     buttonText,
-    buttonColor = "bg-teal-500 hover:bg-teal-600"}) => {
+    buttonColor = "bg-teal-500 hover:bg-teal-600"
+}) => {
     
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.3 })
@@ -28,7 +29,8 @@ const PropertyCard = ({
       animate={isInView ? "visible" : "hidden"}
       variants={fadeInUpVariants}
       transition={{ duration: 0.5 }}
-      className="w-[400px] flex flex-col rounded-lg shadow-md p-4 bg-white"
+      // Updated class for responsiveness: remove fixed width
+      className="flex flex-col rounded-lg shadow-md p-4 bg-white max-w-sm sm:max-w-md w-full"
     >
       {/* image */}
       <motion.div 
@@ -38,10 +40,11 @@ const PropertyCard = ({
       >
         <Image 
           src={image} 
-          width={400} 
-          height={250} 
+          // The parent container (the grid cell) will now determine the image width
+          width={500} 
+          height={300} 
           alt={title} 
-          className="object-cover rounded-md" 
+          className="object-cover rounded-md w-full h-auto" 
         />
       </motion.div>
 
@@ -49,7 +52,7 @@ const PropertyCard = ({
       <motion.div 
         variants={fadeInUpVariants}
         transition={{ duration: 0.5, delay: 0.3 }}
-        className='mt-4 flex flex-col flex-grow'
+        className='mt-4 flex flex-col flex-grow px-2 md:px-4' // Added responsive padding
       >
         {/* card title */}
         <motion.h2 
