@@ -1,126 +1,304 @@
 'use client'
-import React from 'react'
+import React, { useRef } from 'react'
 import { Lightbulb, PawPrint, ShieldCheck, Wifi } from "lucide-react";
 import { Button } from '@/components/ui/button';
+import ABOUT1 from '@/assets/images/about1.jpg'
+import { motion, useInView } from 'framer-motion'
+import Image from 'next/image'
+import LEASE from '@/assets/images/lease.jpg'
+import AIRBNB from '@/assets/images/airbnb.jpg'
 
-const properties = () => {
+const Properties = () => {
+  // Refs for in-view animations
+  const heroRef = useRef(null)
+  const leaseRef = useRef(null)
+  const airbnbRef = useRef(null)
+  
+  // In-view hooks
+  const isHeroInView = useInView(heroRef, { once: true, amount: 0.2 })
+  const isLeaseInView = useInView(leaseRef, { once: true, amount: 0.2 })
+  const isAirbnbInView = useInView(airbnbRef, { once: true, amount: 0.2 })
+
+  // Optimized animation variants
+  const fadeInUpVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut"
+      }
+    }
+  }
+
+  const fadeInLeftVariants = {
+    hidden: { opacity: 0, x: -30 },
+    visible: { 
+      opacity: 1, 
+      x: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut"
+      }
+    }
+  }
+
+  const fadeInRightVariants = {
+    hidden: { opacity: 0, x: 30 },
+    visible: { 
+      opacity: 1, 
+      x: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut"
+      }
+    }
+  }
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3,
+        delayChildren: 0.2
+      }
+    }
+  }
+
+  const featureVariants = {
+    hidden: { opacity: 0, scale: 0.9 },
+    visible: { 
+      opacity: 1, 
+      scale: 1,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut"
+      }
+    }
+  }
+
   return (
-    <div className="bg-white py-16">
-        <div className="container mx-auto px-8 max-w-6xl">
-        {/* Section Header */}
-        <div className="mb-12">
-          <h2 className="text-4xl font-bold text-gray-800 mb-2">Properties</h2>
-          <div className="w-16 h-1 bg-teal-500"></div>
-        </div>
+    <div className="bg-white">
+      {/* Hero Section */}
+      <motion.section 
+        ref={heroRef}
+        initial="hidden"
+        animate={isHeroInView ? "visible" : "hidden"}
+        variants={fadeInUpVariants}
+        className='w-full h-[70vh] relative'
+      >
+        <Image 
+          src={ABOUT1}
+          alt="Properties Hero"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className='absolute inset-0 bg-[#00163BD9]' />
+        <motion.div 
+          variants={fadeInUpVariants}
+          className='relative container mx-auto h-full flex items-center pt-10 px-6'
+        >
+          <motion.h1 
+            variants={fadeInUpVariants}
+            className='text-4xl md:text-5xl lg:text-6xl font-bold text-neutral-50 text-left'
+          >
+            Properties
+            <span className='block w-full max-w-[150px] mt-4'>
+              <hr className=' border-teal-500 border-2' />
+            </span>
+          </motion.h1>
+        </motion.div>
+      </motion.section>
 
-        <div className="space-y-16">
+      {/* Main Content */}
+      <div className="container mx-auto px-8 max-w-6xl py-16">
+        <div className="space-y-24">
+          
           {/* Properties for Lease - Rent */}
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <motion.div 
+            ref={leaseRef}
+            initial="hidden"
+            animate={isLeaseInView ? "visible" : "hidden"}
+            variants={containerVariants}
+            className="grid lg:grid-cols-2 gap-12 items-center"
+          >
             {/* Content */}
-            <div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-6">Properties for Lease - Rent</h3>
+            <motion.div variants={fadeInLeftVariants}>
+              <motion.h3 
+                variants={fadeInUpVariants}
+                className="text-3xl font-bold text-gray-800 mb-6"
+              >
+                Properties for Lease - Rent
+              </motion.h3>
               
-              <p className="text-gray-700 mb-6 leading-relaxed">
+              <motion.p 
+                variants={fadeInUpVariants}
+                className="text-gray-700 mb-6 leading-relaxed text-lg"
+              >
                 Looking for long-term stay or a space you can truly call home?
-              </p>
+              </motion.p>
               
-              <p className="text-gray-700 mb-8 leading-relaxed">
+              <motion.p 
+                variants={fadeInUpVariants}
+                className="text-gray-700 mb-8 leading-relaxed"
+              >
                 Our Lease & Rent collection offers a variety of modern apartments tailored to our lifestyle. From luxury living to standard rooms, find your perfect home with all the necessary comfort, security and prime location.
-              </p>
+              </motion.p>
 
               {/* Features */}
-              <div className="mb-8">
-                <h4 className="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2">Features: <span className='flex-1 max-w-[300px]'><hr className='border-t-2 border-teal-500'/></span></h4>
-                <div className="flex flex-wrap gap-6">
-                  <div className="flex items-center space-x-2">
-                    <ShieldCheck className="w-5 h-5 text-teal-500" />
-                    <span className="text-neutral-800">security</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <Lightbulb className="w-5 h-5 text-teal-500" />
-                    <span className="text-neutral-800">Stable Electricity</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <PawPrint className="w-5 h-5 text-teal-500" />
-                    <span className="text-neutral-800">Pet-friendly</span>
-                  </div>
-                </div>
-              </div>
+              <motion.div 
+                variants={fadeInUpVariants}
+                className="mb-8"
+              >
+                <h4 className="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2">
+                  Features: 
+                  <span className='flex-1 max-w-[300px]'>
+                    <hr className='border-t-2 border-teal-500'/>
+                  </span>
+                </h4>
+                <motion.div 
+                  variants={containerVariants}
+                  className="flex flex-wrap gap-6"
+                >
+                  {[
+                    { icon: ShieldCheck, text: "Security" },
+                    { icon: Lightbulb, text: "Stable Electricity" },
+                    { icon: PawPrint, text: "Pet-friendly" }
+                  ].map((feature, index) => (
+                    <motion.div 
+                      key={index}
+                      variants={featureVariants}
+                      className="flex items-center space-x-2"
+                    >
+                      <feature.icon className="w-5 h-5 text-teal-500" />
+                      <span className="text-neutral-800">{feature.text}</span>
+                    </motion.div>
+                  ))}
+                </motion.div>
+              </motion.div>
 
-              <Button className="bg-teal-500 hover:bg-teal-600 text-white px-8 py-3 rounded-md font-medium">
-                Book an Appointment
-              </Button>
-            </div>
+              <motion.div variants={fadeInUpVariants}>
+                <Button className="bg-teal-500 hover:bg-teal-600 text-white px-8 py-3 rounded-md font-medium transition-all duration-300 hover:shadow-lg hover:scale-105">
+                  Book an Appointment
+                </Button>
+              </motion.div>
+            </motion.div>
 
             {/* Image */}
-            <div className="lg:order-last">
-              <div className="relative">
-                <img
-                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%23f8fafc'/%3E%3Crect x='50' y='50' width='500' height='300' rx='12' fill='%23e2e8f0'/%3E%3Crect x='80' y='80' width='120' height='80' rx='8' fill='%23cbd5e1'/%3E%3Crect x='220' y='80' width='120' height='80' rx='8' fill='%23cbd5e1'/%3E%3Crect x='360' y='80' width='120' height='80' rx='8' fill='%23cbd5e1'/%3E%3Crect x='80' y='180' width='200' height='120' rx='8' fill='%2314b8a6'/%3E%3Crect x='300' y='180' width='180' height='120' rx='8' fill='%23059669'/%3E%3Ccircle cx='150' cy='320' r='15' fill='%23065f46'/%3E%3Ccircle cx='300' cy='320' r='15' fill='%23065f46'/%3E%3Ccircle cx='450' cy='320' r='15' fill='%23065f46'/%3E%3Ctext x='300' y='50' text-anchor='middle' fill='%23374151' font-family='sans-serif' font-size='18' font-weight='bold'%3EModern Apartment Complex%3C/text%3E%3C/svg%3E"
+            <motion.div 
+              variants={fadeInRightVariants}
+              className="lg:order-last"
+            >
+              <div className="relative overflow-hidden rounded-lg shadow-xl">
+                <Image
+                  src={LEASE}
+                  width={600}
+                  height={400}
                   alt="Modern apartment building for long-term rent"
-                  className="w-full h-auto rounded-lg shadow-lg"
+                  className="w-full h-auto transition-transform duration-500 hover:scale-105"
                 />
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Properties for Short-let - Airbnb */}
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Image */}
-            <div>
-              <div className="relative">
-                <img
-                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%23f8fafc'/%3E%3Crect x='50' y='50' width='500' height='300' rx='12' fill='%23e2e8f0'/%3E%3Crect x='80' y='80' width='200' height='150' rx='8' fill='%23fbbf24'/%3E%3Crect x='300' y='80' width='180' height='150' rx='8' fill='%23f59e0b'/%3E%3Crect x='80' y='250' width='120' height='80' rx='8' fill='%23ef4444'/%3E%3Crect x='220' y='250' width='120' height='80' rx='8' fill='%23dc2626'/%3E%3Crect x='360' y='250' width='120' height='80' rx='8' fill='%23b91c1c'/%3E%3Ccircle cx='180' cy='140' r='25' fill='%23ffffff' opacity='0.8'/%3E%3Ccircle cx='390' cy='140' r='25' fill='%23ffffff' opacity='0.8'/%3E%3Ctext x='300' y='40' text-anchor='middle' fill='%23374151' font-family='sans-serif' font-size='18' font-weight='bold'%3EBoutique Short-Stay Suite%3C/text%3E%3C/svg%3E"
+          <motion.div 
+            ref={airbnbRef}
+            initial="hidden"
+            animate={isAirbnbInView ? "visible" : "hidden"}
+            variants={containerVariants}
+            className="grid lg:grid-cols-2 gap-12 items-center"
+          >
+            {/* Image - appears first on large screens */}
+            <motion.div 
+              variants={fadeInLeftVariants}
+              className="lg:order-1"
+            >
+              <div className="relative overflow-hidden rounded-lg shadow-xl">
+                <Image
+                  src={AIRBNB}
+                  width={600}
+                  height={400}
                   alt="Luxury short-term rental suite"
-                  className="w-full h-auto rounded-lg shadow-lg"
+                  className="w-full h-auto object-cover transition-transform duration-500 hover:scale-105"
+                  priority
                 />
               </div>
-            </div>
+            </motion.div>
 
-            {/* Content */}
-            <div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-6">Properties for Short-let - Airbnb</h3>
+            {/* Content - appears second on large screens */}
+            <motion.div 
+              variants={fadeInRightVariants}
+              className="lg:order-2"
+            >
+              <motion.h3 
+                variants={fadeInUpVariants}
+                className="text-3xl font-bold text-gray-800 mb-6"
+              >
+                Properties for Short-let - Airbnb
+              </motion.h3>
               
-              <p className="text-gray-700 mb-6 leading-relaxed">
+              <motion.p 
+                variants={fadeInUpVariants}
+                className="text-gray-700 mb-6 leading-relaxed text-lg"
+              >
                 Need a space for a few nights, weeks or months?
-              </p>
+              </motion.p>
               
-              <p className="text-gray-700 mb-8 leading-relaxed">
+              <motion.p 
+                variants={fadeInUpVariants}
+                className="text-gray-700 mb-8 leading-relaxed"
+              >
                 Our Short-let & Airbnb collection is designed for business travelers, tourists and anyone looking for a premium stay experience. Whether for work or leisure, enjoy modern amenities, stylish interiors, prime locations, and truly stellar hospitality in every space that makes it feel just like home.
-              </p>
+              </motion.p>
 
               {/* Features */}
-              <div className="mb-8">
-                <h4 className="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2">Features: <span className='flex-1 max-w-[300px]'><hr className='border-t-2 border-teal-500'/></span></h4>
-                <div className="flex flex-wrap gap-6">
-                  <div className="flex items-center space-x-1">
-                    <ShieldCheck className="w-5 h-5 text-teal-500" />
-                    <span className="text-neutral-800">security</span>
-                  </div>
-                  <div className="flex items-center space-x-1">
-                    <Lightbulb className="w-5 h-5 text-teal-500" />
-                    <span className="text-neutral-800">Stable Electricity</span>
-                  </div>
-                  <div className="flex items-center space-x-1">
-                    <PawPrint className="w-5 h-5 text-teal-500" />
-                    <span className="text-neutral-800">Pet-Friendly</span>
-                  </div>
-                  <div className="flex items-center space-x-1">
-                    <Wifi className="w-5 h-5 text-teal-500" />
-                    <span className="text-neutral-800">Free wifi</span>
-                  </div>
-                </div>
-              </div>
+              <motion.div 
+                variants={fadeInUpVariants}
+                className="mb-8"
+              >
+                <h4 className="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2">
+                  Features: 
+                  <span className='flex-1 max-w-[300px]'>
+                    <hr className='border-t-2 border-teal-500'/>
+                  </span>
+                </h4>
+                <motion.div 
+                  variants={containerVariants}
+                  className="flex flex-wrap gap-6"
+                >
+                  {[
+                    { icon: ShieldCheck, text: "Security" },
+                    { icon: Lightbulb, text: "Stable Electricity" },
+                    { icon: PawPrint, text: "Pet-Friendly" },
+                    { icon: Wifi, text: "Free WiFi" }
+                  ].map((feature, index) => (
+                    <motion.div 
+                      key={index}
+                      variants={featureVariants}
+                      className="flex items-center space-x-2"
+                    >
+                      <feature.icon className="w-5 h-5 text-teal-500" />
+                      <span className="text-neutral-800">{feature.text}</span>
+                    </motion.div>
+                  ))}
+                </motion.div>
+              </motion.div>
 
-              <Button className="bg-teal-500 hover:bg-teal-600 text-white px-8 py-3 rounded-md font-medium">
-                Book an Appointment
-              </Button>
-            </div>
-          </div>
+              <motion.div variants={fadeInUpVariants}>
+                <Button className="bg-teal-500 hover:bg-teal-600 text-white px-8 py-3 rounded-md font-medium transition-all duration-300 hover:shadow-lg hover:scale-105">
+                  Book an Appointment
+                </Button>
+              </motion.div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </div>
   )
 }
 
-export default properties
+export default Properties
