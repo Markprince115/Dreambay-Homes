@@ -3,13 +3,14 @@ import React, { useRef } from 'react'
 import Image from 'next/image'
 import { Button } from '../ui/button'
 import { motion, useInView } from 'framer-motion'
+import Link from 'next/link'
 
 const PropertyCard = ({
     image,
     title,
     description,
     features,
-    buttonText, 
+    buttonText,
     buttonColor = "bg-teal-500 hover:bg-teal-600"}) => {
     
   const ref = useRef(null)
@@ -94,9 +95,11 @@ const PropertyCard = ({
             transition={{ duration: 0.5, delay: 0.9 }}
             className="mt-auto"
           >
+          <Link href='/contact'>
             <Button className={`w-full text-white mt-2 ${buttonColor}`}>
               {buttonText}
             </Button>
+          </Link>
           </motion.div>
         </motion.div>
       </motion.div>

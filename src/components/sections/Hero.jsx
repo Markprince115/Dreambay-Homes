@@ -3,6 +3,7 @@ import React, { useRef } from 'react'
 import HEROBG from '@/assets/images/herobg.jpg'
 import { Button } from '@/components/ui/button'
 import { motion, useInView } from 'framer-motion'
+import Link from 'next/link'
 
 const Hero = () => {
   const ref = useRef(null)
@@ -55,9 +56,11 @@ const Hero = () => {
           variants={fadeUpVariants}
           transition={{ duration: 0.5, delay: 0.8 }}
         >
-          <Button href="/" className='bg-green-300/60 text-white py-3 px-6 rounded-lg'>
-            Book an Appointment
-          </Button>
+          <Link href='/contact'>
+            <Button className='bg-green-300/60 text-white py-3 px-6 rounded-lg'>
+              Book an Appointment
+            </Button>
+          </Link>
         </motion.div>
       </motion.div>
     </section>

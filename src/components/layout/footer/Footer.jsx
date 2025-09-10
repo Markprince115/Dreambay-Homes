@@ -3,6 +3,7 @@ import Image from 'next/image'
 import React, { useRef } from 'react'
 import LOGO from '@/assets/images/logo.png'
 import { motion, useInView } from 'framer-motion'
+import Link from 'next/link'
 
 const fadeInUpVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -36,7 +37,7 @@ const Footer = () => {
           {/* Company Description */}
           <motion.div variants={fadeInUpVariants} className="lg:col-span-1">
             <div>
-              <Image src={LOGO} width={40} height={40} alt='Logo' />
+              <Link href='/'><Image src={LOGO} width={150} height={150} alt='Logo' /></Link>
             </div>
             <p className="text-gray-300 leading-relaxed text-sm mt-4">
               We are committed to providing modern, well-designed, and strategically-located properties that meet the needs of today's discerning travelers and residents. Through excellent booking, personalized check and top-notch service, we make every stay effortlessly comfortable and memorable.

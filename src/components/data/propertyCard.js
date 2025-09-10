@@ -1,6 +1,6 @@
 import {ShieldCheck, Wifi, Lightbulb, PawPrint } from 'lucide-react';
 import HEROBG from '@/assets/images/herobg.jpg'
-import ABOAUT1 from '@/assets/images/about1.jpg'
+import AIRBNB from '@/assets/images/airbnb.jpg'
 
 export const properties = [
     {
@@ -15,7 +15,7 @@ export const properties = [
       buttonText: "Book an Appointment"
     },
     {
-      image: ABOUT1,
+      image: AIRBNB,
       title: "Property for Shortlet - Air BNB",
       description: "Experience luxury with our short-term rental options that perfectly match your unique preferences and requirements.",
       features: [

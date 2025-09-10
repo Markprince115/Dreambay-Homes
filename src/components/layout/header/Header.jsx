@@ -80,6 +80,7 @@ const Header = () => {
         variants={childVariants}
         className='text-center'
       >
+        <Link href='/'>
         {isScrolled ? (
           <Image
             src={LOGO2}
@@ -99,6 +100,7 @@ const Header = () => {
             priority
           />
         )}
+        </Link>
       </motion.div>
 
       {/* navigation menu - hidden on mobile and smooth animation using framer motion*/}
@@ -130,7 +132,7 @@ const Header = () => {
         variants={childVariants}
         className='flex items-center justify-center gap-2'
       >
-        <Button className='hidden md:block bg-teal-500 text-neutral-50'> Book Appointment</Button>
+        <Link href='/contact'><Button className='hidden md:block bg-teal-500 text-neutral-50'> Book Appointment</Button></Link>
         <button
           className="md:hidden p-3 focus:outline-none z-[100] relative"
           onClick={handleToggle}
@@ -186,9 +188,11 @@ const Header = () => {
           transition={{ duration: 0.3, delay: menuToggle ? navItems.length * 0.07 : 0 }}
           className="w-full mt-4"
         >
-          <Button className='bg-teal-500 text-neutral-50 w-full' onClick={() => setMenuToggle(false)}>
-            Book Appointment
-          </Button>
+          <Link href='/contact'>
+            <Button className='bg-teal-500 text-neutral-50 w-full' onClick={() => setMenuToggle(false)}>
+              Book Appointment
+            </Button>
+          </Link>
         </motion.div>
       </motion.div>
     </motion.header>
