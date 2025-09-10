@@ -59,14 +59,14 @@ const Hero = () => {
 
         <motion.h1
           variants={itemVariants}
-          className='mb-4 max-w-4xl text-4xl font-bold leading-tight sm:text-5xl md:text-6xl'
+          className='mb-4 text-3xl font-bold leading-tight md:text-5xl lg:text-7xl'
         >
           Your Perfect Balance of Comfort, Class and Convenience.
         </motion.h1>
 
         <motion.p
           variants={itemVariants}
-          className="mb-8 max-w-2xl text-base text-white/80 md:text-lg"
+          className="mb-8 max-w-2xl text-white/80 text-sm md:text-lg"
         >
           We believe every stay should feel effortless. That's why Dreambay Homes
           offers fully serviced apartments in prime locations — giving you a home
