@@ -7,6 +7,7 @@ import { motion, useInView } from 'framer-motion'
 import Image from 'next/image'
 import LEASE from '@/assets/images/lease.jpg'
 import AIRBNB from '@/assets/images/airbnb.jpg'
+import Link from 'next/link';
 
 const Properties = () => {
   // Refs for in-view animations
@@ -181,9 +182,11 @@ const Properties = () => {
               </motion.div>
 
               <motion.div variants={fadeInUpVariants}>
-                <Button className="bg-teal-500 hover:bg-teal-600 text-white px-8 py-3 rounded-md font-medium transition-all duration-300 hover:shadow-lg hover:scale-105">
-                  Book an Appointment
-                </Button>
+                <Link href='/contact'>
+                  <Button className="bg-teal-500 hover:bg-teal-600 text-white px-8 py-3 rounded-md font-medium transition-all duration-300 hover:shadow-lg hover:scale-105">
+                    Book an Appointment
+                  </Button>
+                </Link>
               </motion.div>
             </motion.div>
 
@@ -289,9 +292,11 @@ const Properties = () => {
               </motion.div>
 
               <motion.div variants={fadeInUpVariants}>
-                <Button className="bg-teal-500 hover:bg-teal-600 text-white px-8 py-3 rounded-md font-medium transition-all duration-300 hover:shadow-lg hover:scale-105">
-                  Book an Appointment
-                </Button>
+                <Link href='/'>
+                  <Button className="bg-teal-500 hover:bg-teal-600 text-white px-8 py-3 rounded-md font-medium transition-all duration-300 hover:shadow-lg hover:scale-105">
+                    Book an Appointment
+                  </Button>
+                </Link>
               </motion.div>
             </motion.div>
           </motion.div>

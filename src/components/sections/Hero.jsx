@@ -59,9 +59,9 @@ const Hero = () => {
 
         <motion.h1
           variants={itemVariants}
-          className='mb-4 text-3xl font-bold leading-tight md:text-5xl lg:text-7xl'
+          className='mb-4 text-3xl font-bold leading-tight md:text-5xl lg:text-5xl'
         >
-          Your Perfect Balance of Comfort, Class and Convenience.
+          Your Perfect Balance of Comfort, <br/>Class and Convenience.
         </motion.h1>
 
         <motion.p
@@ -75,7 +75,7 @@ const Hero = () => {
 
         <motion.div variants={itemVariants}>
           <Link href='/contact'>
-            <Button className='rounded-lg bg-green-300/60 px-8 py-6 text-base font-semibold text-white transition hover:bg-green-300/80'>
+            <Button className='rounded-lg bg-teal-500 px-8 py-6 text-base font-semibold text-white transition hover:bg-green-300/80'>
               Book an Appointment
             </Button>
           </Link>

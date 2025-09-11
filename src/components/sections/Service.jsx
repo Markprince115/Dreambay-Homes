@@ -15,7 +15,7 @@ const Service = () => {
     {/* Responsive grid section */}
     <div className='w-full pb-8'>
       {/* The key change is here, replacing the flexbox with a responsive grid */}
-      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 px-5 md:px-10 justify-items-center'>
+      <div className='flex flex-col md:flex-row items-center justify-center gap-5 p-4'>
           {properties.map((property, index) => (
               <PropertyCard key={index}
                 image={property.image}
