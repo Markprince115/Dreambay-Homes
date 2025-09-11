@@ -32,8 +32,15 @@ export default function About(){
         animate={isInView ? "visible" : "hidden"}
         variants={fadeInUpVariants}
         className='w-full h-[50dvh] md:h-[70dvh] flex items-center p-4 md:p-8'
-        style={{backgroundImage: `url(${ABOUT1.src})`, backgroundSize: 'cover', backgroundColor: "#00163BD9", backgroundBlendMode: 'overlay', backgroundPosition: 'center'}}
-      >
+        >
+        <Image 
+            src={ABOUT1}
+            alt="Contact Hero"
+            fill
+            className="object-cover"
+            priority
+        />
+        <div className='absolute inset-0 bg-[#00163BD9]' />
         <motion.div 
           variants={fadeInUpVariants}
           className='container mx-auto'
