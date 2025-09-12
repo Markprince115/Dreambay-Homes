@@ -2,7 +2,7 @@
 'use client'
 import React, { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import ABOUT1 from '@/assets/images/about1.jpg'
+import CALL from '@/assets/images/call.jpg'
 import CONTACT from '@/assets/images/contact.jpg'
 import Image from 'next/image'
 import { ContactFormLogic } from '@/components/contact-form-logic'
@@ -46,7 +46,7 @@ export default function Contact() {
         className='w-full h-[70dvh] relative'
       >
         <Image 
-          src={ABOUT1}
+          src={CALL}
           alt="Contact Hero"
           fill
           className="object-cover"
