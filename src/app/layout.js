@@ -33,7 +33,7 @@ export const metadata = {
   openGraph: {
     title: 'DreamBay Homes | Luxury Shortlet Apartments',
     description: 'Experience luxury living in our modern, well-equipped shortlet apartments. Perfect for business travelers, tourists, and long-term stays in prime locations across Nigeria.',
-    url: 'https://dreambayhomes.com',
+    url: 'https://dreambayhome.netlify.app/',
     siteName: 'DreamBay Homes',
     images: [
       {
@@ -53,7 +53,7 @@ export const metadata = {
     images: ['/images/twitter-image.jpg'],
   },
   alternates: {
-    canonical: 'https://dreambayhomes.com',
+    canonical: 'https://dreambayhome.netlify.app/',
   },
   robots: {
     index: true,

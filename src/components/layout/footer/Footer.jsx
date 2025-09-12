@@ -70,11 +70,6 @@ const Footer = () => {
                   Property
                 </a>
               </li>
-              <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors text-sm">
-                  Blog
-                </a>
-              </li>
             </ul>
           </motion.div>
 
@@ -99,11 +94,6 @@ const Footer = () => {
               <li>
                 <a href="mailto:info@dreambayhomes.com" className="text-gray-300 hover:text-white transition-colors text-sm">
                   info@dreambayhomes.com
-                </a>
-              </li>
-              <li>
-                <a href="tel:+234-810-7890" className="text-gray-300 hover:text-white transition-colors text-sm">
-                  +234-810-7890
                 </a>
               </li>
             </ul>
