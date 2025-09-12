@@ -2,11 +2,12 @@
 'use client'
 import React, { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import ABOUT1 from '@/assets/images/about1.jpg'
 import CALL from '@/assets/images/call.jpg'
-import CONTACT from '@/assets/images/contact.jpg'
 import Image from 'next/image'
 import { ContactFormLogic } from '@/components/contact-form-logic'
 import { Toaster } from 'sonner'
+import { Mail, PhoneCall } from 'lucide-react'
 
 export default function Contact() {
   const ref = useRef(null)
@@ -46,7 +47,7 @@ export default function Contact() {
         className='w-full h-[70dvh] relative'
       >
         <Image 
-          src={CALL}
+          src={ABOUT1}
           alt="Contact Hero"
           fill
           className="object-cover"
@@ -78,12 +79,42 @@ export default function Contact() {
           className="grid lg:grid-cols-2 gap-16 items-center"
         >
           {/* Left Column - Phone image */}
-          <motion.div 
-            variants={fadeInUpVariants}
-            className="flex justify-center lg:justify-start"
-          >
-            <Image src={CONTACT} width={400} height={400} alt='phone image'/>
-          </motion.div>
+          <div>
+            <motion.div 
+              variants={fadeInUpVariants}
+              className="flex justify-center lg:justify-start"
+            >
+              <Image src={CALL} width={400} height={400} alt='phone image'/>
+            </motion.div>
+
+            <div>
+              <div>
+                {/* call icon with call us title and number */}
+                <motion.h2 
+                  variants={fadeInUpVariants}
+                  className="text-2xl font-bold mt-8 mb-2 flex items-center gap-4"
+                ><span className='p-6 bg-green-600 text-neutral-50'><PhoneCall size={40}/></span> Call Us </motion.h2>
+                <motion.p 
+                  variants={fadeInUpVariants}
+                  className="text-gray-700"
+                > +1 (123) 456-7890 </motion.p>
+                </div>
+
+                {/* mail us icon, title,and email */}
+                <div className="mt-6">
+                  <motion.h2 
+                    variants={fadeInUpVariants}
+                    className="text-2xl font-bold mb-2 flex items-center gap-4"
+                  ><span className='bg-green-600 text-neutral-50'><Mail size={30}/></span> Mail Us </motion.h2>
+                  <motion.p 
+                    variants={fadeInUpVariants}
+                    className="text-neutral-800"
+                  >
+                    info@dreambayhomes.com
+                  </motion.p>
+                </div>
+              </div>
+          </div>
 
           {/* Right Column - Contact Form */}
           <ContactFormLogic
