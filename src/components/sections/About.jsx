@@ -6,6 +6,7 @@ import ABOUT1 from '@/assets/images/about1.jpg'
 import ABOUT2 from '@/assets/images/about2.jpg'
 import { Button } from '@/components/ui/button'
 import { ArrowRight } from 'lucide-react'
+import Link from 'next/link'
 
 const About = () => {
   const ref = useRef(null)
