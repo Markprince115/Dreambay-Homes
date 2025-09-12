@@ -88,7 +88,7 @@ const Properties = () => {
         initial="hidden"
         animate={isHeroInView ? "visible" : "hidden"}
         variants={fadeInUpVariants}
-        className='w-full h-[70vh] relative'
+        className='w-full h-[60dvh] relative'
       >
         <Image 
           src={ABOUT1}
@@ -100,7 +100,7 @@ const Properties = () => {
         <div className='absolute inset-0 bg-[#00163BD9]' />
         <motion.div 
           variants={fadeInUpVariants}
-          className='relative container mx-auto h-full flex items-center pt-10 px-6'
+          className='relative container mx-auto h-full flex items-center pt-20 px-6'
         >
           <motion.h1 
             variants={fadeInUpVariants}
@@ -124,7 +124,7 @@ const Properties = () => {
             initial="hidden"
             animate={isLeaseInView ? "visible" : "hidden"}
             variants={containerVariants}
-            className="grid lg:grid-cols-2 gap-12 items-center"
+            className="grid lg:grid-cols-2 gap-12 items-center order-first"
           >
             {/* Content */}
             <motion.div variants={fadeInLeftVariants}>
@@ -193,7 +193,7 @@ const Properties = () => {
             {/* Image */}
             <motion.div 
               variants={fadeInRightVariants}
-              className="lg:order-last"
+              className="lg:order-last order-first"
             >
               <div className="relative overflow-hidden rounded-lg shadow-xl">
                 <Image
@@ -292,7 +292,7 @@ const Properties = () => {
               </motion.div>
 
               <motion.div variants={fadeInUpVariants}>
-                <Link href='/'>
+                <Link href='/contact'>
                   <Button className="bg-teal-500 hover:bg-teal-600 text-white px-8 py-3 rounded-md font-medium transition-all duration-300 hover:shadow-lg hover:scale-105">
                     Book an Appointment
                   </Button>

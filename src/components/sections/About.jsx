@@ -95,9 +95,11 @@ const About = () => {
               variants={fadeInUpVariants}
               transition={{ duration: 0.6, delay: 1 }}
             >
-              <Button variant="default" className='bg-teal-500 text-neutral-50'> 
-                Read More <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
+              <Link href="/about" aria-label="Read more about us">
+                <Button variant="default" className='bg-teal-500 text-neutral-50'> 
+                  Read More <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
             </motion.div>
           </motion.div>
         </div>

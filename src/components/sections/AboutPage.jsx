@@ -85,12 +85,12 @@ function AboutPage() {
             <div className='flex flex-col items-center justify-center max-w-4xl mx-auto text-center'>
                <motion.p 
                 variants={fadeInUpVariants}
-                className='text-neutral-800 text-base md:text-lg leading-relaxed mb-6 whitespace-pre-wrap'
+                className='text-neutral-800 text-left md:text-lg leading-relaxed mb-6 whitespace-pre-wrap'
                 >At <b>Dreambay Homes</b>, we believe finding the perfect place to stay should feel effortless. We provide beautifully designed shortlets and fully serviced apartments that combine luxury, comfort, and convenience for today's modern lifestyle.
                 </motion.p>
                 <motion.p 
                 variants={fadeInUpVariants}
-                className='text-neutral-800 text-base md:text-lg leading-relaxed'
+                className='text-neutral-800 text-left md:text-lg leading-relaxed'
                 >Whether you're traveling for business, leisure, or a longer retreat, our spaces are crafted to feel like home — warm, stylish, and thoughtfully equipped. With prime locations, seamless booking, and personalized service, we go beyond accommodation to create memorable experiences.
                 </motion.p>
             </div>
@@ -105,7 +105,7 @@ function AboutPage() {
         <div className='grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto'>
             <motion.div 
             variants={fadeInUpVariants}
-            className='w-full flex justify-center order-first md:order-last'
+            className='w-full flex justify-center order-first'
             >
             <Image 
             src={ABOUT2} 
