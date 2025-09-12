@@ -82,9 +82,9 @@ export default function Contact() {
           <div>
             <motion.div 
               variants={fadeInUpVariants}
-              className="flex justify-center lg:justify-start"
+              className="flex justify-center lg:justify-start rounded-lg"
             >
-              <Image src={CALL} width={400} height={400} alt='phone image'/>
+              <Image src={CALL} width={300} height={700} className='rounded-lg h-64' alt='phone image'/>
             </motion.div>
 
             <div>
@@ -93,7 +93,7 @@ export default function Contact() {
                 <motion.h2 
                   variants={fadeInUpVariants}
                   className="text-2xl font-bold mt-8 mb-2 flex items-center gap-4"
-                ><span className='p-6 bg-green-600 text-neutral-50'><PhoneCall size={40}/></span> Call Us </motion.h2>
+                ><span className='p-4 bg-green-600 text-neutral-50 rounded-full'><PhoneCall size={20}/></span> Call Us </motion.h2>
                 <motion.p 
                   variants={fadeInUpVariants}
                   className="text-gray-700"
@@ -105,7 +105,7 @@ export default function Contact() {
                   <motion.h2 
                     variants={fadeInUpVariants}
                     className="text-2xl font-bold mb-2 flex items-center gap-4"
-                  ><span className='bg-green-600 text-neutral-50'><Mail size={30}/></span> Mail Us </motion.h2>
+                  ><span className='bg-green-600 text-neutral-50 p-4 rounded-full'><Mail size={20}/></span> Mail Us </motion.h2>
                   <motion.p 
                     variants={fadeInUpVariants}
                     className="text-neutral-800"

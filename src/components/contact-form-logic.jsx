@@ -59,7 +59,7 @@ export const ContactFormLogic = ({ fadeInUpVariants, containerVariants, isInView
       variants={containerVariants}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
-      className="space-y-6"
+      className="space-y-6 bg-teal-100/35 p-6 rounded-lg shadow-lg"
     >
       <motion.div variants={fadeInUpVariants}>
         <input
